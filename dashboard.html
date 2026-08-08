@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="แดชบอร์ดภาพรวม IoT — สถิติและการแจ้งเตือนแบบเรียลไทม์" />
+    <meta
+      name="description"
+      content="แดชบอร์ดภาพรวม IoT — สถิติและการแจ้งเตือนแบบเรียลไทม์"
+    />
     <title>แดชบอร์ด — IoTWeb</title>
     <link rel="icon" type="image/x-icon" href="favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,8 +18,8 @@
     <link rel="stylesheet" href="style.css" />
     <script>
       (function () {
-        const saved = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', saved);
+        const saved = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-theme", saved);
       })();
     </script>
     <style>
@@ -33,7 +36,9 @@
         margin-bottom: var(--space-xl);
       }
       @media (max-width: 900px) {
-        .chart-section { grid-template-columns: 1fr; }
+        .chart-section {
+          grid-template-columns: 1fr;
+        }
       }
       /* Mini sparkline bar chart */
       .sparkline {
@@ -46,12 +51,22 @@
       .sparkline-bar {
         flex: 1;
         border-radius: 4px 4px 0 0;
-        background: linear-gradient(to top, var(--color-primary), var(--color-accent));
+        background: linear-gradient(
+          to top,
+          var(--color-primary),
+          var(--color-accent)
+        );
         opacity: 0.8;
-        transition: opacity var(--transition-fast), transform var(--transition-fast);
+        transition:
+          opacity var(--transition-fast),
+          transform var(--transition-fast);
         cursor: pointer;
       }
-      .sparkline-bar:hover { opacity: 1; transform: scaleY(1.05); transform-origin: bottom; }
+      .sparkline-bar:hover {
+        opacity: 1;
+        transform: scaleY(1.05);
+        transform-origin: bottom;
+      }
       .sparkline-labels {
         display: flex;
         justify-content: space-between;
@@ -61,7 +76,11 @@
       }
 
       /* Activity log */
-      .activity-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+      .activity-list {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-sm);
+      }
       .activity-item {
         display: flex;
         align-items: flex-start;
@@ -69,25 +88,53 @@
         padding: var(--space-sm) 0;
         border-bottom: 1px solid var(--color-border);
       }
-      .activity-item:last-child { border-bottom: none; }
+      .activity-item:last-child {
+        border-bottom: none;
+      }
       .activity-icon {
-        width: 32px; height: 32px;
+        width: 32px;
+        height: 32px;
         border-radius: 50%;
-        display: flex; align-items: center; justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-size: 14px;
         flex-shrink: 0;
       }
-      .activity-icon.info    { background: var(--color-primary-soft); }
-      .activity-icon.success { background: #d1fae5; }
-      .activity-icon.warning { background: #fef3c7; }
-      .activity-icon.danger  { background: #fee2e2; }
-      [data-theme="dark"] .activity-icon.success { background: #064e3b; }
-      [data-theme="dark"] .activity-icon.warning { background: #78350f; }
-      [data-theme="dark"] .activity-icon.danger  { background: #7f1d1d; }
+      .activity-icon.info {
+        background: var(--color-primary-soft);
+      }
+      .activity-icon.success {
+        background: #d1fae5;
+      }
+      .activity-icon.warning {
+        background: #fef3c7;
+      }
+      .activity-icon.danger {
+        background: #fee2e2;
+      }
+      [data-theme="dark"] .activity-icon.success {
+        background: #064e3b;
+      }
+      [data-theme="dark"] .activity-icon.warning {
+        background: #78350f;
+      }
+      [data-theme="dark"] .activity-icon.danger {
+        background: #7f1d1d;
+      }
 
-      .activity-content { flex: 1; }
-      .activity-title { font-size: var(--font-sm); font-weight: 500; color: var(--color-text); }
-      .activity-time  { font-size: var(--font-xs); color: var(--color-text-muted); }
+      .activity-content {
+        flex: 1;
+      }
+      .activity-title {
+        font-size: var(--font-sm);
+        font-weight: 500;
+        color: var(--color-text);
+      }
+      .activity-time {
+        font-size: var(--font-xs);
+        color: var(--color-text-muted);
+      }
 
       /* Donut chart (CSS only) */
       .donut-wrap {
@@ -97,19 +144,23 @@
         gap: var(--space-md);
       }
       .donut {
-        width: 130px; height: 130px;
+        width: 130px;
+        height: 130px;
         border-radius: 50%;
         background: conic-gradient(
-          var(--color-success)  0% 66%,
-          var(--color-warning)  66% 83%,
+          var(--color-success) 0% 66%,
+          var(--color-warning) 66% 83%,
           var(--color-text-muted) 83% 100%
         );
-        display: flex; align-items: center; justify-content: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: relative;
       }
       .donut::after {
-        content: '';
-        width: 80px; height: 80px;
+        content: "";
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
         background: var(--color-surface);
         position: absolute;
@@ -122,13 +173,25 @@
         font-size: var(--font-md);
         color: var(--color-text);
       }
-      .donut-legend { width: 100%; display: flex; flex-direction: column; gap: var(--space-xs); }
+      .donut-legend {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-xs);
+      }
       .legend-item {
-        display: flex; align-items: center; justify-content: space-between;
-        font-size: var(--font-xs); color: var(--color-text-muted);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: var(--font-xs);
+        color: var(--color-text-muted);
       }
       .legend-dot {
-        width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; flex-shrink: 0;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-right: 6px;
+        flex-shrink: 0;
       }
       .clock-badge {
         font-size: var(--font-xs);
@@ -149,14 +212,21 @@
         <li><a href="dashboard.html" class="active">แดชบอร์ด</a></li>
         <li><a href="settings.html">ตั้งค่า</a></li>
       </ul>
-      <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark mode" title="สลับธีม"></button>
+      <button
+        id="theme-toggle-btn"
+        class="theme-toggle"
+        aria-label="Toggle dark mode"
+        title="สลับธีม"
+      ></button>
     </nav>
 
     <!-- ── Main ── -->
     <main class="container mt-xl animate-fade-in">
-
       <!-- Header -->
-      <div class="flex items-center justify-between mb-md" style="flex-wrap:wrap;gap:var(--space-sm);">
+      <div
+        class="flex items-center justify-between mb-md"
+        style="flex-wrap: wrap; gap: var(--space-sm)"
+      >
         <div>
           <h1>แดชบอร์ด</h1>
           <p class="text-muted text-sm">ภาพรวมระบบ IoT แบบเรียลไทม์</p>
@@ -173,12 +243,12 @@
         </div>
         <div class="stat-card animate-fade-in">
           <div class="stat-label">ออนไลน์ขณะนี้</div>
-          <div class="stat-value" style="color:var(--color-success);">4</div>
+          <div class="stat-value" style="color: var(--color-success)">4</div>
           <span class="stat-badge up">● 66% ออนไลน์</span>
         </div>
         <div class="stat-card animate-fade-in">
           <div class="stat-label">การแจ้งเตือนวันนี้</div>
-          <div class="stat-value" style="color:var(--color-warning);">3</div>
+          <div class="stat-value" style="color: var(--color-warning)">3</div>
           <span class="stat-badge down">▼ -2 จากเมื่อวาน</span>
         </div>
         <div class="stat-card animate-fade-in">
@@ -190,7 +260,6 @@
 
       <!-- Chart + Donut -->
       <div class="chart-section">
-
         <!-- Bar Chart -->
         <div class="card">
           <div class="card-header">
@@ -200,8 +269,8 @@
           <div class="card-body">
             <div class="sparkline" id="bar-chart"></div>
             <div class="sparkline-labels">
-              <span>จ</span><span>อ</span><span>พ</span>
-              <span>พฤ</span><span>ศ</span><span>ส</span><span>อา</span>
+              <span>จ</span><span>อ</span><span>พ</span> <span>พฤ</span
+              ><span>ศ</span><span>ส</span><span>อา</span>
             </div>
           </div>
         </div>
@@ -214,27 +283,36 @@
           </div>
           <div class="card-body">
             <div class="donut-wrap">
-              <div class="donut" style="position:relative;">
-                <div class="donut-label" style="z-index:2;">66%</div>
+              <div class="donut" style="position: relative">
+                <div class="donut-label" style="z-index: 2">66%</div>
               </div>
               <div class="donut-legend">
                 <div class="legend-item">
                   <div class="flex items-center">
-                    <div class="legend-dot" style="background:var(--color-success);"></div>
+                    <div
+                      class="legend-dot"
+                      style="background: var(--color-success)"
+                    ></div>
                     <span>ออนไลน์</span>
                   </div>
                   <strong>4</strong>
                 </div>
                 <div class="legend-item">
                   <div class="flex items-center">
-                    <div class="legend-dot" style="background:var(--color-warning);"></div>
+                    <div
+                      class="legend-dot"
+                      style="background: var(--color-warning)"
+                    ></div>
                     <span>เตือน</span>
                   </div>
                   <strong>1</strong>
                 </div>
                 <div class="legend-item">
                   <div class="flex items-center">
-                    <div class="legend-dot" style="background:var(--color-text-muted);"></div>
+                    <div
+                      class="legend-dot"
+                      style="background: var(--color-text-muted)"
+                    ></div>
                     <span>ออฟไลน์</span>
                   </div>
                   <strong>1</strong>
@@ -250,79 +328,92 @@
         <div class="card-header">
           <span>📋</span>
           <h2 class="card-title">กิจกรรมล่าสุด</h2>
-          <button class="btn btn-ghost btn-sm" style="margin-left:auto;">ดูทั้งหมด →</button>
+          <button class="btn btn-ghost btn-sm" style="margin-left: auto">
+            ดูทั้งหมด →
+          </button>
         </div>
         <div class="card-body">
           <div class="activity-list">
             <div class="activity-item">
               <div class="activity-icon success">✅</div>
               <div class="activity-content">
-                <div class="activity-title">เซ็นเซอร์อุณหภูมิ #01 — รายงานค่าปกติ 24.5°C</div>
+                <div class="activity-title">
+                  เซ็นเซอร์อุณหภูมิ #01 — รายงานค่าปกติ 24.5°C
+                </div>
                 <div class="activity-time">เมื่อกี้ (2 นาทีที่แล้ว)</div>
               </div>
             </div>
             <div class="activity-item">
               <div class="activity-icon warning">⚠️</div>
               <div class="activity-content">
-                <div class="activity-title">เซ็นเซอร์แสง #03 — แบตเตอรี่เหลือน้อย (12%)</div>
+                <div class="activity-title">
+                  เซ็นเซอร์แสง #03 — แบตเตอรี่เหลือน้อย (12%)
+                </div>
                 <div class="activity-time">18 นาทีที่แล้ว</div>
               </div>
             </div>
             <div class="activity-item">
               <div class="activity-icon danger">❌</div>
               <div class="activity-content">
-                <div class="activity-title">เซ็นเซอร์ประตู #04 — ขาดการเชื่อมต่อ</div>
+                <div class="activity-title">
+                  เซ็นเซอร์ประตู #04 — ขาดการเชื่อมต่อ
+                </div>
                 <div class="activity-time">2 ชั่วโมงที่แล้ว</div>
               </div>
             </div>
             <div class="activity-item">
               <div class="activity-icon info">📡</div>
               <div class="activity-content">
-                <div class="activity-title">เราเตอร์ IoT #05 — อุปกรณ์ใหม่เชื่อมต่อสำเร็จ</div>
+                <div class="activity-title">
+                  เราเตอร์ IoT #05 — อุปกรณ์ใหม่เชื่อมต่อสำเร็จ
+                </div>
                 <div class="activity-time">3 ชั่วโมงที่แล้ว</div>
               </div>
             </div>
             <div class="activity-item">
               <div class="activity-icon success">💧</div>
               <div class="activity-content">
-                <div class="activity-title">เซ็นเซอร์ความชื้น #02 — ความชื้นสูงกว่าเกณฑ์ (68%)</div>
+                <div class="activity-title">
+                  เซ็นเซอร์ความชื้น #02 — ความชื้นสูงกว่าเกณฑ์ (68%)
+                </div>
                 <div class="activity-time">5 ชั่วโมงที่แล้ว</div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </main>
 
     <!-- ── Scripts ── -->
     <script>
       // Theme
-      document.getElementById('theme-toggle-btn').addEventListener('click', () => {
-        const cur = document.documentElement.getAttribute('data-theme');
-        const next = cur === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-      });
+      document
+        .getElementById("theme-toggle-btn")
+        .addEventListener("click", () => {
+          const cur = document.documentElement.getAttribute("data-theme");
+          const next = cur === "dark" ? "light" : "dark";
+          document.documentElement.setAttribute("data-theme", next);
+          localStorage.setItem("theme", next);
+        });
 
       // Live clock
       function updateClock() {
         const now = new Date();
-        document.getElementById('live-clock').textContent =
-          '⏱ ' + now.toLocaleTimeString('th-TH');
+        document.getElementById("live-clock").textContent =
+          "⏱ " + now.toLocaleTimeString("th-TH");
       }
       updateClock();
       setInterval(updateClock, 1000);
 
       // Generate random bar chart
       const data = [320, 480, 210, 560, 390, 720, 430];
-      const max  = Math.max(...data);
-      const chart = document.getElementById('bar-chart');
-      data.forEach(val => {
-        const bar = document.createElement('div');
-        bar.className = 'sparkline-bar';
-        bar.style.height = (val / max * 100) + '%';
-        bar.title = val + ' รายการ';
+      const max = Math.max(...data);
+      const chart = document.getElementById("bar-chart");
+      data.forEach((val) => {
+        const bar = document.createElement("div");
+        bar.className = "sparkline-bar";
+        bar.style.height = (val / max) * 100 + "%";
+        bar.title = val + " รายการ";
         chart.appendChild(bar);
       });
     </script>

@@ -20,8 +20,8 @@
     <!-- Dark mode: apply saved theme before render to avoid flash -->
     <script>
       (function () {
-        const saved = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', saved);
+        const saved = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-theme", saved);
       })();
     </script>
   </head>
@@ -50,24 +50,24 @@
       <p>There is no clue</p>
       <hr />
       <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et quia deserunt
-        distinctio asperiores rerum nihil, deleniti eaque incidunt voluptatum
-        ullam alias a dicta adipisci modi iusto explicabo fugit placeat aut
-        laudantium quam assumenda nesciunt! Maiores ipsa eligendi amet omnis
-        perferendis?
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et quia
+        deserunt distinctio asperiores rerum nihil, deleniti eaque incidunt
+        voluptatum ullam alias a dicta adipisci modi iusto explicabo fugit
+        placeat aut laudantium quam assumenda nesciunt! Maiores ipsa eligendi
+        amet omnis perferendis?
       </p>
     </main>
 
     <!-- ── Dark Mode Script ── -->
     <script>
-      const btn = document.getElementById('theme-toggle-btn');
+      const btn = document.getElementById("theme-toggle-btn");
       function applyTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
       }
-      btn.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme');
-        applyTheme(current === 'dark' ? 'light' : 'dark');
+      btn.addEventListener("click", () => {
+        const current = document.documentElement.getAttribute("data-theme");
+        applyTheme(current === "dark" ? "light" : "dark");
       });
     </script>
   </body>

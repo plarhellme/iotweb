@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="style.css" />
     <script>
       (function () {
-        const saved = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', saved);
+        const saved = localStorage.getItem("theme") || "light";
+        document.documentElement.setAttribute("data-theme", saved);
       })();
     </script>
     <style>
@@ -32,7 +32,9 @@
         border-radius: var(--radius-md);
         padding: var(--space-lg);
         box-shadow: var(--shadow-sm);
-        transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+        transition:
+          box-shadow var(--transition-normal),
+          transform var(--transition-normal);
         display: flex;
         flex-direction: column;
         gap: var(--space-sm);
@@ -130,11 +132,21 @@
         background: var(--color-border);
         display: block;
       }
-      .signal-bar span.active { background: var(--color-success); }
-      .signal-bar span:nth-child(1) { height: 4px; }
-      .signal-bar span:nth-child(2) { height: 7px; }
-      .signal-bar span:nth-child(3) { height: 10px; }
-      .signal-bar span:nth-child(4) { height: 14px; }
+      .signal-bar span.active {
+        background: var(--color-success);
+      }
+      .signal-bar span:nth-child(1) {
+        height: 4px;
+      }
+      .signal-bar span:nth-child(2) {
+        height: 7px;
+      }
+      .signal-bar span:nth-child(3) {
+        height: 10px;
+      }
+      .signal-bar span:nth-child(4) {
+        height: 14px;
+      }
     </style>
   </head>
   <body>
@@ -147,52 +159,75 @@
         <li><a href="dashboard.html">แดชบอร์ด</a></li>
         <li><a href="settings.html">ตั้งค่า</a></li>
       </ul>
-      <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle dark mode" title="สลับธีม"></button>
+      <button
+        id="theme-toggle-btn"
+        class="theme-toggle"
+        aria-label="Toggle dark mode"
+        title="สลับธีม"
+      ></button>
     </nav>
 
     <!-- ── Main ── -->
     <main class="container mt-xl animate-fade-in">
-
       <!-- Header -->
       <div class="page-header">
         <div>
           <h1>อุปกรณ์</h1>
-          <p class="text-muted text-sm">จัดการและติดตามอุปกรณ์ IoT ทั้งหมดของคุณ</p>
+          <p class="text-muted text-sm">
+            จัดการและติดตามอุปกรณ์ IoT ทั้งหมดของคุณ
+          </p>
         </div>
         <div class="search-bar">
-          <input type="text" class="form-input" id="device-search" placeholder="🔍 ค้นหาอุปกรณ์..." />
+          <input
+            type="text"
+            class="form-input"
+            id="device-search"
+            placeholder="🔍 ค้นหาอุปกรณ์..."
+          />
           <button class="btn btn-primary">+ เพิ่มอุปกรณ์</button>
         </div>
       </div>
 
       <!-- Filter Tabs -->
       <div class="filter-tabs">
-        <button class="filter-tab active" onclick="filterDevices(this, 'all')">ทั้งหมด (6)</button>
-        <button class="filter-tab" onclick="filterDevices(this, 'online')">🟢 ออนไลน์ (4)</button>
-        <button class="filter-tab" onclick="filterDevices(this, 'offline')">⚫ ออฟไลน์ (1)</button>
-        <button class="filter-tab" onclick="filterDevices(this, 'warning')">🟡 เตือน (1)</button>
+        <button class="filter-tab active" onclick="filterDevices(this, 'all')">
+          ทั้งหมด (6)
+        </button>
+        <button class="filter-tab" onclick="filterDevices(this, 'online')">
+          🟢 ออนไลน์ (4)
+        </button>
+        <button class="filter-tab" onclick="filterDevices(this, 'offline')">
+          ⚫ ออฟไลน์ (1)
+        </button>
+        <button class="filter-tab" onclick="filterDevices(this, 'warning')">
+          🟡 เตือน (1)
+        </button>
       </div>
 
       <!-- Devices Grid -->
       <div class="devices-grid stagger" id="devices-grid">
-
         <!-- Device 1 -->
         <div class="device-card animate-fade-in" data-status="online">
           <div class="device-icon">🌡️</div>
           <h3 class="device-name">เซ็นเซอร์อุณหภูมิ #01</h3>
-          <div class="device-meta">ID: DEV-001 &nbsp;|&nbsp; โซน: ห้องเซิร์ฟเวอร์</div>
+          <div class="device-meta">
+            ID: DEV-001 &nbsp;|&nbsp; โซน: ห้องเซิร์ฟเวอร์
+          </div>
           <div class="device-status-row">
             <div class="device-status">
               <span class="status-dot online"></span>
-              <span style="color: var(--color-success);">ออนไลน์</span>
+              <span style="color: var(--color-success)">ออนไลน์</span>
             </div>
             <div class="signal-bar">
               <span class="active"></span><span class="active"></span>
               <span class="active"></span><span class="active"></span>
             </div>
           </div>
-          <div style="font-size: var(--font-sm); color: var(--color-text-muted);">
-            อุณหภูมิปัจจุบัน: <strong style="color:var(--color-text)">24.5°C</strong>
+          <div
+            style="font-size: var(--font-sm); color: var(--color-text-muted)"
+          >
+            อุณหภูมิปัจจุบัน:
+            <strong style="color: var(--color-text)">24.5°C</strong>
           </div>
           <div class="device-actions">
             <button class="btn btn-outline btn-sm">ดูข้อมูล</button>
@@ -208,15 +243,18 @@
           <div class="device-status-row">
             <div class="device-status">
               <span class="status-dot online"></span>
-              <span style="color: var(--color-success);">ออนไลน์</span>
+              <span style="color: var(--color-success)">ออนไลน์</span>
             </div>
             <div class="signal-bar">
               <span class="active"></span><span class="active"></span>
               <span class="active"></span><span></span>
             </div>
           </div>
-          <div style="font-size: var(--font-sm); color: var(--color-text-muted);">
-            ความชื้นปัจจุบัน: <strong style="color:var(--color-text)">68%</strong>
+          <div
+            style="font-size: var(--font-sm); color: var(--color-text-muted)"
+          >
+            ความชื้นปัจจุบัน:
+            <strong style="color: var(--color-text)">68%</strong>
           </div>
           <div class="device-actions">
             <button class="btn btn-outline btn-sm">ดูข้อมูล</button>
@@ -232,15 +270,18 @@
           <div class="device-status-row">
             <div class="device-status">
               <span class="status-dot warning"></span>
-              <span style="color: var(--color-warning);">แบตเตอรี่ต่ำ</span>
+              <span style="color: var(--color-warning)">แบตเตอรี่ต่ำ</span>
             </div>
             <div class="signal-bar">
               <span class="active"></span><span class="active"></span>
               <span></span><span></span>
             </div>
           </div>
-          <div style="font-size: var(--font-sm); color: var(--color-text-muted);">
-            ความเข้มแสง: <strong style="color:var(--color-text)">320 lux</strong>
+          <div
+            style="font-size: var(--font-sm); color: var(--color-text-muted)"
+          >
+            ความเข้มแสง:
+            <strong style="color: var(--color-text)">320 lux</strong>
           </div>
           <div class="device-actions">
             <button class="btn btn-outline btn-sm">ดูข้อมูล</button>
@@ -256,14 +297,17 @@
           <div class="device-status-row">
             <div class="device-status">
               <span class="status-dot offline"></span>
-              <span style="color: var(--color-text-muted);">ออฟไลน์</span>
+              <span style="color: var(--color-text-muted)">ออฟไลน์</span>
             </div>
             <div class="signal-bar">
               <span></span><span></span><span></span><span></span>
             </div>
           </div>
-          <div style="font-size: var(--font-sm); color: var(--color-text-muted);">
-            อัพเดตล่าสุด: <strong style="color:var(--color-text)">2 ชม. ที่แล้ว</strong>
+          <div
+            style="font-size: var(--font-sm); color: var(--color-text-muted)"
+          >
+            อัพเดตล่าสุด:
+            <strong style="color: var(--color-text)">2 ชม. ที่แล้ว</strong>
           </div>
           <div class="device-actions">
             <button class="btn btn-outline btn-sm">ดูข้อมูล</button>
@@ -275,19 +319,24 @@
         <div class="device-card animate-fade-in" data-status="online">
           <div class="device-icon">📡</div>
           <h3 class="device-name">เราเตอร์ IoT #05</h3>
-          <div class="device-meta">ID: DEV-005 &nbsp;|&nbsp; โซน: ห้องควบคุม</div>
+          <div class="device-meta">
+            ID: DEV-005 &nbsp;|&nbsp; โซน: ห้องควบคุม
+          </div>
           <div class="device-status-row">
             <div class="device-status">
               <span class="status-dot online"></span>
-              <span style="color: var(--color-success);">ออนไลน์</span>
+              <span style="color: var(--color-success)">ออนไลน์</span>
             </div>
             <div class="signal-bar">
               <span class="active"></span><span class="active"></span>
               <span class="active"></span><span class="active"></span>
             </div>
           </div>
-          <div style="font-size: var(--font-sm); color: var(--color-text-muted);">
-            อุปกรณ์เชื่อมต่อ: <strong style="color:var(--color-text)">12 เครื่อง</strong>
+          <div
+            style="font-size: var(--font-sm); color: var(--color-text-muted)"
+          >
+            อุปกรณ์เชื่อมต่อ:
+            <strong style="color: var(--color-text)">12 เครื่อง</strong>
           </div>
           <div class="device-actions">
             <button class="btn btn-outline btn-sm">ดูข้อมูล</button>
@@ -299,57 +348,68 @@
         <div class="device-card animate-fade-in" data-status="online">
           <div class="device-icon">🔌</div>
           <h3 class="device-name">สมาร์ทปลั๊ก #06</h3>
-          <div class="device-meta">ID: DEV-006 &nbsp;|&nbsp; โซน: ห้องทำงาน</div>
+          <div class="device-meta">
+            ID: DEV-006 &nbsp;|&nbsp; โซน: ห้องทำงาน
+          </div>
           <div class="device-status-row">
             <div class="device-status">
               <span class="status-dot online"></span>
-              <span style="color: var(--color-success);">ออนไลน์</span>
+              <span style="color: var(--color-success)">ออนไลน์</span>
             </div>
             <div class="signal-bar">
               <span class="active"></span><span class="active"></span>
               <span class="active"></span><span></span>
             </div>
           </div>
-          <div style="font-size: var(--font-sm); color: var(--color-text-muted);">
-            พลังงานที่ใช้: <strong style="color:var(--color-text)">450W</strong>
+          <div
+            style="font-size: var(--font-sm); color: var(--color-text-muted)"
+          >
+            พลังงานที่ใช้:
+            <strong style="color: var(--color-text)">450W</strong>
           </div>
           <div class="device-actions">
             <button class="btn btn-outline btn-sm">ดูข้อมูล</button>
             <button class="btn btn-ghost btn-sm">⚙️ ตั้งค่า</button>
           </div>
         </div>
-
-      </div><!-- /devices-grid -->
+      </div>
+      <!-- /devices-grid -->
     </main>
 
     <!-- ── Dark Mode + Filter Script ── -->
     <script>
       // Theme toggle
-      const btn = document.getElementById('theme-toggle-btn');
-      btn.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
+      const btn = document.getElementById("theme-toggle-btn");
+      btn.addEventListener("click", () => {
+        const current = document.documentElement.getAttribute("data-theme");
+        const next = current === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        localStorage.setItem("theme", next);
       });
 
       // Filter devices
       function filterDevices(tab, status) {
-        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-        document.querySelectorAll('.device-card').forEach(card => {
+        document
+          .querySelectorAll(".filter-tab")
+          .forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+        document.querySelectorAll(".device-card").forEach((card) => {
           card.style.display =
-            status === 'all' || card.dataset.status === status ? '' : 'none';
+            status === "all" || card.dataset.status === status ? "" : "none";
         });
       }
 
       // Search
-      document.getElementById('device-search').addEventListener('input', function () {
-        const q = this.value.toLowerCase();
-        document.querySelectorAll('.device-card').forEach(card => {
-          card.style.display = card.innerText.toLowerCase().includes(q) ? '' : 'none';
+      document
+        .getElementById("device-search")
+        .addEventListener("input", function () {
+          const q = this.value.toLowerCase();
+          document.querySelectorAll(".device-card").forEach((card) => {
+            card.style.display = card.innerText.toLowerCase().includes(q)
+              ? ""
+              : "none";
+          });
         });
-      });
     </script>
   </body>
 </html>
