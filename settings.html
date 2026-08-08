@@ -180,23 +180,7 @@
         gap: var(--space-sm);
         margin-top: var(--space-md);
       }
-      .avatar {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        background: linear-gradient(
-          135deg,
-          var(--color-primary),
-          var(--color-accent)
-        );
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 2rem;
-        font-weight: 700;
-        color: white;
-        margin-bottom: var(--space-md);
-      }
+
     </style>
   </head>
   <body>
@@ -227,12 +211,6 @@
         <aside class="settings-sidebar">
           <button
             class="sidebar-link active"
-            onclick="showPanel('profile', this)"
-          >
-            👤 โปรไฟล์
-          </button>
-          <button
-            class="sidebar-link"
             onclick="showPanel('notifications', this)"
           >
             🔔 การแจ้งเตือน
@@ -254,102 +232,8 @@
 
         <!-- Panels -->
         <div>
-          <!-- Profile Panel -->
-          <div id="panel-profile" class="settings-panel active">
-            <div class="settings-section">
-              <h2>👤 ข้อมูลโปรไฟล์</h2>
-              <div class="avatar">P</div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="first-name">ชื่อ</label>
-                  <input
-                    class="form-input"
-                    id="first-name"
-                    type="text"
-                    value="Plarhellme"
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="last-name">นามสกุล</label>
-                  <input
-                    class="form-input"
-                    id="last-name"
-                    type="text"
-                    placeholder="นามสกุล"
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="email">อีเมล</label>
-                <input
-                  class="form-input"
-                  id="email"
-                  type="email"
-                  value="doomreer250@gmail.com"
-                />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="username"
-                  >ชื่อผู้ใช้ (GitHub)</label
-                >
-                <input
-                  class="form-input"
-                  id="username"
-                  type="text"
-                  value="plarhellme"
-                />
-              </div>
-              <div class="save-bar">
-                <button class="btn btn-ghost">ยกเลิก</button>
-                <button class="btn btn-primary" onclick="showSaved()">
-                  บันทึกการเปลี่ยนแปลง
-                </button>
-              </div>
-            </div>
-
-            <div class="settings-section">
-              <h2>🔑 เปลี่ยนรหัสผ่าน</h2>
-              <div class="form-group">
-                <label class="form-label" for="old-pw">รหัสผ่านเดิม</label>
-                <input
-                  class="form-input"
-                  id="old-pw"
-                  type="password"
-                  placeholder="••••••••"
-                />
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label class="form-label" for="new-pw">รหัสผ่านใหม่</label>
-                  <input
-                    class="form-input"
-                    id="new-pw"
-                    type="password"
-                    placeholder="••••••••"
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="confirm-pw"
-                    >ยืนยันรหัสผ่าน</label
-                  >
-                  <input
-                    class="form-input"
-                    id="confirm-pw"
-                    type="password"
-                    placeholder="••••••••"
-                  />
-                </div>
-              </div>
-              <div class="save-bar">
-                <button class="btn btn-primary" onclick="showSaved()">
-                  เปลี่ยนรหัสผ่าน
-                </button>
-              </div>
-            </div>
-          </div>
-
           <!-- Notifications Panel -->
-          <div id="panel-notifications" class="settings-panel">
+          <div id="panel-notifications" class="settings-panel active">
             <div class="settings-section">
               <h2>🔔 การแจ้งเตือน</h2>
               <div class="toggle-row">
