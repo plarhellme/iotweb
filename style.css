@@ -860,3 +860,44 @@ hr {
 .overflow-hidden {
   overflow: hidden;
 }
+
+/* ── 17. Page Nav Bar (simple pages) ─────────────────────── */
+.page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.page-nav a {
+  font-family: var(--font-family);
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: none;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.page-nav a:visited {
+  color: var(--color-primary);
+}
+
+.page-nav a:hover {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+.page-nav a:active {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.page-content {
+  padding: var(--space-lg) var(--space-xl);
+}

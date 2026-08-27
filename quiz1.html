@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz 1 - Unstable Table</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        background: #fff;
+        margin: 0;
+        padding: 0;
+      }
+
+      .quiz-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 24px 40px;
+      }
+
+      .quiz-content h2 {
+        font-size: 1rem;
+        font-weight: 400;
+        letter-spacing: 0.2em;
+        text-align: center;
+        color: #111;
+        margin: 0 0 4px 0;
+      }
+
+      .quiz-content p {
+        font-size: 1rem;
+        text-align: center;
+        color: #111;
+        margin: 0 0 16px 0;
+      }
+
+      table.t1 {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 510px;
+        border: 2px solid #000;
+      }
+
+      table.t1 td {
+        border: 1.5px solid #000;
+        width: 85px;
+        height: 60px;
+        padding: 0;
+        background: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-nav">
+      <a href="index.html">Go to Home Page</a>
+      <a href="page1.html">Go to Page 1</a>
+      <a href="page2.html">Go to Page 2</a>
+      <a href="page3.html">Go to Page 3</a>
+      <a href="page4.html">Go to Page 4</a>
+      <a href="page5.html">Go to Page 5</a>
+      <a href="page6.html">Go to Page 6</a>
+      <a href="page7.html">Go to Page 7</a>
+      <a href="page8.html">Go to Page 8</a>
+      <a href="page9.html">Go to Page 9</a>
+    </div>
+
+    <div class="quiz-content">
+      <h2>MY TABLE TEST</h2>
+      <p>^_^</p>
+
+      <!--
+        6 columns x 8 rows
+        Verified each row sums to 6:
+
+        Row 1: c1(r2) + c2-3(r3) + c4    + c5-6    = 1+2+1+2=6
+        Row 2: [c1]   + [c23]    + c4(r2) + c5 + c6(r3) = occ+occ+1+1+1=3new
+        Row 3: c1(r3) + [c23]    + [c4]   + c5 + [c6] = 1+1=2new
+        Row 4: [c1]   + c2(r2)   + c3    + c4-5    + [c6] = 1+1+2=4new
+        Row 5: [c1]   + [c2]     + c3-4   + c5 + c6 = 2+1+1=4new
+        Row 6: c1(r2) + c2       + c3    + c4-5 + c6(r2)= 6new
+        Row 7: [c1]   + c2       + c3-4   + c5 + [c6] = 1+2+1=4new
+        Row 8: c1-2   + c3       + c4    + c5 + c6 = 2+1+1+1+1=6
+      -->
+      <table class="t1">
+        <!-- Row 1 -->
+        <tr>
+          <td rowspan="2"></td>
+          <td colspan="2" rowspan="3"></td>
+          <td></td>
+          <td colspan="2"></td>
+        </tr>
+        <!-- Row 2 -->
+        <tr>
+          <td rowspan="2"></td>
+          <td></td>
+          <td rowspan="3"></td>
+        </tr>
+        <!-- Row 3 -->
+        <tr>
+          <td rowspan="3"></td>
+          <td></td>
+        </tr>
+        <!-- Row 4 -->
+        <tr>
+          <td rowspan="2"></td>
+          <td></td>
+          <td colspan="2"></td>
+        </tr>
+        <!-- Row 5 -->
+        <tr>
+          <td colspan="2"></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <!-- Row 6 -->
+        <tr>
+          <td rowspan="2"></td>
+          <td></td>
+          <td></td>
+          <td colspan="2"></td>
+          <td rowspan="2"></td>
+        </tr>
+        <!-- Row 7 -->
+        <tr>
+          <td></td>
+          <td colspan="2"></td>
+          <td></td>
+        </tr>
+        <!-- Row 8 -->
+        <tr>
+          <td colspan="2"></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
