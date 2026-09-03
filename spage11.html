@@ -1,25 +1,24 @@
 <!doctype html>
-
+ 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="เขียนอธิบายเกี่ยวกับเว็บหรือเว็บเพจของเรา...."
-    />
-    <meta
-      name="keywords"
-      content="เขียนเป็นคำๆ สำคัญเกี่ยวกับเว็บหรือเว็บเพจของเรา...."
-    />
-    <title>Simple Left Text - Simple Right Text</title>
-    <link rel="shortcut icon" href="./images/icon.png" type="image/png" />
+    <title>Document</title>
+    <style>
+      /* Adjacent Selector */
+      /* S1 + S2 ความหมายคือ S2 ที่อยู่ต่อจาก S1 แค่ตัวแรกที่เจอ */
+      #aa + p{
+        color: red;
+      }
+    </style>
     <link rel="stylesheet" href="style.css" />
   </head>
-
+ 
   <body>
-            <div class="page-nav">
+    <div class="page-nav">
       <a href="index.html">Go to Home Page</a>
+      <a href="page1.html">Go to Page 1</a>
       <a href="page2.html">Go to Page 2</a>
       <a href="page3.html">Go to Page 3</a>
       <a href="page4.html">Go to Page 4</a>
@@ -39,25 +38,26 @@
       <a href="spage08.html">Go to Spage 08</a>
       <a href="spage09.html">Go to Spage 09</a>
       <a href="spage10.html">Go to Spage 10</a>
-      <a href="spage11.html">Go to Spage 11</a>
       <a href="spage12.html">Go to Spage 12</a>
       <a href="spage13.html">Go to Spage 13</a>
     </div>
-    <div class="page-content">
-      AAAAAAA <br /><br />BBBBBBB <br /><br /><br />
-      CCCCC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CCCCCC
-
-      <hr />
-
-      <pre>
-DDDDDDD
-          FFFFFFF              FFFFFFFF
- 
- 
-GGGGGGGGGGG                 GGGGGGGGGGGGGGGGGGGGGGGGGGGG
- 
-      HHHHHHHHHHHHHH                 H
-    </pre>
-    </div>
+        <div id="aa">
+            <p>11111</p>
+            <p>22222</p>
+            <span>HELLO</span>
+            <div id="bb">
+                <p>33333</p>
+                <div id="c">
+                    <p>44444</p>
+                </div>
+            </div>
+            <p>55555</p>
+            <span>HI</span>
+            <p>66666</p>
+        </div>
+        <p>77777</p>
+        <p>88888</p>
+        <span>HEY</span>
+        <p>99999</p>
   </body>
 </html>
